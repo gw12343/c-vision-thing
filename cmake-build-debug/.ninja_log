@@ -1,0 +1,23 @@
+# ninja log v6
+17	864	7616997750446597	CMakeFiles/c_vision_thing.dir/main.c.obj	5dc53c79725faab4
+864	1014	7616997758919901	c_vision_thing.exe	61c68338f55f34d
+18	878	7616997947701154	CMakeFiles/c_vision_thing.dir/main.c.obj	5dc53c79725faab4
+879	1108	7616997956315953	c_vision_thing.exe	61c68338f55f34d
+7	825	7616998470170536	CMakeFiles/c_vision_thing.dir/main.c.obj	5dc53c79725faab4
+826	1163	7616998478358624	c_vision_thing.exe	61c68338f55f34d
+22	983	7616998653769918	CMakeFiles/c_vision_thing.dir/main.c.obj	5dc53c79725faab4
+984	1208	7616998663394011	c_vision_thing.exe	61c68338f55f34d
+23	956	7616999242802296	CMakeFiles/c_vision_thing.dir/main.c.obj	5dc53c79725faab4
+967	1241	7616999252230852	c_vision_thing.exe	61c68338f55f34d
+14	1154	7616999435073150	CMakeFiles/c_vision_thing.dir/main.c.obj	5dc53c79725faab4
+1155	1452	7616999446479973	c_vision_thing.exe	61c68338f55f34d
+6	1150	7617001148537291	CMakeFiles/c_vision_thing.dir/main.c.obj	5dc53c79725faab4
+1151	1364	7617001159979467	c_vision_thing.exe	61c68338f55f34d
+7	901	7617001581862835	CMakeFiles/c_vision_thing.dir/main.c.obj	5dc53c79725faab4
+902	1146	7617001590817176	c_vision_thing.exe	61c68338f55f34d
+11	1059	7617002326834876	CMakeFiles/c_vision_thing.dir/main.c.obj	5dc53c79725faab4
+1061	1233	7617002337331467	c_vision_thing.exe	61c68338f55f34d
+12	893	7617002433505649	CMakeFiles/c_vision_thing.dir/main.c.obj	5dc53c79725faab4
+894	1082	7617002442323766	c_vision_thing.exe	61c68338f55f34d
+8	856	7617037582248086	CMakeFiles/c_vision_thing.dir/main.c.obj	5dc53c79725faab4
+857	1255	7617037590739924	c_vision_thing.exe	61c68338f55f34d
