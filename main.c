@@ -18,6 +18,8 @@
 #define WEAK_EDGE 100
 #define NO_EDGE 0
 
+#define NMS_TOLERANCE 0.00 // not needed
+
 unsigned char* tags [APRIL_TAG_AMOUNT];
 
 int width;
@@ -137,11 +139,11 @@ void compute_gradient(const unsigned char* img, double* gradient, double* direct
     }
 }
 
-void non_maximum_suppression(double* gradient, double* direction, int* edges) {
+void non_maximum_suppression(double* gradient, double* direction, unsigned char* edges) {
     for (int y = 1; y < height - 1; y++) {
         for (int x = 1; x < width - 1; x++) {
             // Constrain arctan angle
-            /*double angle = fmod(GET_PIXEL(direction, x, y) + 180, 180);
+            double angle = fmod(GET_PIXEL(direction, x, y) + 180, 180);
 
             int q = 0;
             int r = 0;
@@ -168,12 +170,11 @@ void non_maximum_suppression(double* gradient, double* direction, int* edges) {
             double p = GET_PIXEL(gradient, x, y);
 
             // Remove non-maximums
-            if ((p >= q || (p / q) >= 0.5) && (p >= r || (p / r) >= 0.5)) {
+            if ((p >= q || (p / q) >= (1 - NMS_TOLERANCE)) && (p >= r || (p / r) >= (1 - NMS_TOLERANCE))) {
                 SET_PIXEL(edges, x, y, (int)GET_PIXEL(gradient, x, y));
             } else {
                 SET_PIXEL(edges, x, y, 0);
-            }*/
-            SET_PIXEL(edges, x, y, 250);
+            }
         }
     }
 }
@@ -203,7 +204,7 @@ int main(void) {
     unsigned char* outImage3 = malloc(sizeof(unsigned char) * width * height);
     double* gradient = malloc(sizeof(double) * width * height);
     double* dirs = malloc(sizeof(double) * width * height);
-    int* nms = malloc(sizeof(int) * width * height);
+    unsigned char* nms = malloc(sizeof(unsigned char) * width * height);
 
     printf("Image size: %dx%d\n", width, height);
     printf("Pixel color: %d\n", GET_PIXEL_COLOR(img, 1, 1, RED));
