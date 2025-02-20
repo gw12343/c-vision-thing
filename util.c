@@ -60,7 +60,7 @@ void free_tags(void) {
     }
 }
 
-void load_image(const char* path, const unsigned char** d) {
+void load_image(const char* path, unsigned char** d) {
     *d = stbi_load(path, &width, &height, &channels, 0);
     if(*d == NULL) {
         printf("Error in loading the image\n");

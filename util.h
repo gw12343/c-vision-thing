@@ -42,7 +42,7 @@ void load_tags(void);
 
 void free_tags(void);
 
-void load_image(const char* path, const unsigned char** d);
+void load_image(const char* path, unsigned char** d);
 
 void save_double_array_as_png(const double *data, int width, int height, const char *filename);
 
