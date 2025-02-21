@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/gabed/Documents/GitHub/c-vision-thing/main.c" "CMakeFiles/c_vision_thing.dir/main.c.obj" "gcc" "CMakeFiles/c_vision_thing.dir/main.c.obj.d"
-  "C:/Users/gabed/Documents/GitHub/c-vision-thing/util.c" "CMakeFiles/c_vision_thing.dir/util.c.obj" "gcc" "CMakeFiles/c_vision_thing.dir/util.c.obj.d"
+  "C:/Users/Gabe/Documents/GitHub/c-vision-thing/main.c" "CMakeFiles/c_vision_thing.dir/main.c.obj" "gcc" "CMakeFiles/c_vision_thing.dir/main.c.obj.d"
+  "C:/Users/Gabe/Documents/GitHub/c-vision-thing/util.c" "CMakeFiles/c_vision_thing.dir/util.c.obj" "gcc" "CMakeFiles/c_vision_thing.dir/util.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

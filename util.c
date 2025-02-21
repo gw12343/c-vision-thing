@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 #include "vendor/stb_image.h"
 #include "vendor/stb_image_write.h"
@@ -14,19 +15,44 @@ extern int height;
 extern int channels;
 extern unsigned char* tags [APRIL_TAG_AMOUNT];
 
-void draw_line(unsigned char* image, vec2 pos0, vec2 pos1, color col) {
+// Modified from https://www.geeksforgeeks.org/dda-line-generation-algorithm-computer-graphics/
+void draw_line(unsigned char* image, vec2 pos0, vec2 pos1, unsigned char col) {
+    // calculate dx & dy
     int dx = pos1.x - pos0.x;
     int dy = pos1.y - pos0.y;
-    int D = 2*dy - dx;
-    int y = pos0.y;
 
-    for (int x = pos0.x; x < pos1.x; x++) {
-        SET_PIXEL_COLOR(image, x, y, col);
-        if (D > 0) {
-            y++;
-            D -= 2*dy;
-        }
-        D += 2*dx;
+    int steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy);
+
+    double Xinc = dx / (double)steps;
+    double Yinc = dy / (double)steps;
+
+    double X = pos0.x;
+    double Y = pos0.y;
+    for (int i = 0; i <= steps; i++) {
+        SET_PIXEL(image, (int)round(X), (int)round(Y), col);
+        X += Xinc;
+        Y += Yinc;
+    }
+}
+
+
+// Modified from https://www.geeksforgeeks.org/dda-line-generation-algorithm-computer-graphics/
+void draw_line_color(unsigned char* image, vec2 pos0, vec2 pos1, color col) {
+    // calculate dx & dy
+    int dx = pos1.x - pos0.x;
+    int dy = pos1.y - pos0.y;
+
+    int steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy);
+
+    double Xinc = dx / (double)steps;
+    double Yinc = dy / (double)steps;
+
+    double X = pos0.x;
+    double Y = pos0.y;
+    for (int i = 0; i <= steps; i++) {
+        SET_PIXEL_COLOR(image, (int)round(X), (int)round(Y), col);
+        X += Xinc;
+        Y += Yinc;
     }
 }
 
@@ -72,7 +98,7 @@ void load_image(const char* path, unsigned char** d) {
 
 
 void save_double_array_as_png(const double *data, int width, int height, const char *filename) {
-    unsigned char *image_data = malloc(width * height);
+    unsigned char *image_data = malloc(width * height * sizeof (unsigned char));
     if (!image_data) {
         printf("Failed to allocate memory.\n");
         return;
